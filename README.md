@@ -1,24 +1,17 @@
-# README
+#IronNation API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Why
 
-Things you may want to cover:
+- Why not!? Gotta have someplace to store that data.  
 
-* Ruby version
+##What For?
 
-* System dependencies
+- Easy, gathering data to plan for the IronNation™ hackathon.
 
-* Configuration
+##When is that again?
 
-* Database creation
+- January 6-8, 2017
 
-* Database initialization
+##What's in this?
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- At the moment, just 2 tables.  A user and a team.  Both hit simple api endpoints.  Much work still needs to happen, but this will do the jorb for now.
