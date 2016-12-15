@@ -28,7 +28,7 @@ gem 'rails_admin', '~> 1.0'
 gem 'rails_12factor', group: :production
 gem 'figaro'
 # gem 'simple_form'
-# gem 'pry-rails', :group => :development
+gem 'pry-rails', :group => :development
 # gem 'faker'
 # gem 'jquery-ui-rails'
 # gem 'refile', github: 'refile/refile', require: 'refile/rails'
