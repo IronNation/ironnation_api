@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>IronnationApi</title>
-    <%= csrf_meta_tags %>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Iron Nation Hackathon - 2017 </title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
   <body>
-    <%= yield %>
+    <nav class="tiygray" role="navigation">
+      <%= render 'layouts/nav' %>
+    </nav>
+      <%= yield %>
+    <footer class="page-footer teal">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,78 @@
+@import "materialize/components/color";
+@import 'materialize';
+
+.tiygray {
+  background-color: #2b3133 !important;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+#header-image {
+  max-height: 64px;
+}
+
+@font-face {
+  font-family: "Tisa";
+  src: local(Tisa Thin), url("tisa/TisaPro.eot");
+  src: url("tisa/TisaPro.eot?#iefix") format("embedded-opentype"), url("tisa/TisaPro.woff2") format("woff2"), url("tisa/TisaPro.woff") format("woff"), url("tisa/TisaPro.ttf") format("truetype");
+  font-weight: 200;
+}
+
+html {
+  line-height: 1.5;
+  font-family: "Tisa", sans-serif !important;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+span#taco{
+  padding-right: 6px;
+}

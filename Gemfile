@@ -27,14 +27,16 @@ gem 'rails_admin', '~> 1.0'
 # gem 'devise'
 gem 'rails_12factor', group: :production
 gem 'figaro'
-# gem 'simple_form'
+gem 'simple_form'
 gem 'pry-rails', :group => :development
-# gem 'faker'
-# gem 'jquery-ui-rails'
+gem 'faker'
+gem 'jquery-ui-rails'
 # gem 'refile', github: 'refile/refile', require: 'refile/rails'
 # gem 'refile-mini_magick', github: 'refile/refile-mini_magick'
 # gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
 # gem 'refile-postgres'
+gem 'materialize-sass'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
