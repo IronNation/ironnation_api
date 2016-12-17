@@ -1,11 +1,21 @@
 <div class="nav-wrapper container">
-  <a id="logo-container" href="" class="brand-logo"><%= image_tag 'tiy_white.png', id: 'header-image' %></a>
+  <%= link_to image_tag('tiy_white.png', id: 'header-image'), root_path, class: "brand-logo", id: "logo-container" %>
   <ul class="right hide-on-med-and-down">
-    <li><a href="#" class="white-text">Navbar Link</a></li>
+    <!-- Dropdown Trigger -->
+    <a class='dropdown-button white-text' href='#' data-activates='dropdown1'>Drop Me!<i class="material-icons right white-text">arrow_drop_down</i></a>
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><%= link_to "Register as a Mentor", "#" %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Judge Login", "#" %></li>
+    </ul>
   </ul>
 
   <ul id="nav-mobile" class="side-nav">
-    <li><a href="#">Navbar Link</a></li>
+    <li><%= link_to "Register as a Mentor", "#" %></li>
+    <li class="divider"></li>
+    <li><%= link_to "Judge Login", "#" %></li>
   </ul>
   <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 </div>

@@ -10,16 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215043935) do
+ActiveRecord::Schema.define(version: 20161216045848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "schools", force: :cascade do |t|
+    t.string   "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "project_name"
+    t.string   "project_url"
   end
 
   create_table "users", force: :cascade do |t|
@@ -29,6 +37,8 @@ ActiveRecord::Schema.define(version: 20161215043935) do
     t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "city"
+    t.integer  "school_id"
     t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 

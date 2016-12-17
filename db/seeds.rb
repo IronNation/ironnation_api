@@ -5,3 +5,33 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Team.destroy_all
+School.destroy_all
+
+def create_city
+  city_name = ["Houston", "San Antonio", "Austin", "Dallas", "Salt Lake City", "Las Vegas", "Tampa Bay", "Orlando", "Atlanta", "Durham", "Raleigh", "Charleston", "Charlotte", "Cincinnati", "Columbia", "Detroit", "Greenville", "Indianapolis", "Minneapolis", "Nashville", "Washington, D.C."]
+  city_name.each do |city|
+    school = School.new
+    school.city = city
+    school.save!
+  end
+end
+
+
+def create_user(city)
+  user = User.new
+  user.first_name = Faker::Name.first_name
+  user.last_name = Faker::Name.last_name
+  user.email = Faker::Internet.email
+  user.school_id = city.id
+  user.save!
+end
+
+create_city
+
+School.all.each do |city|
+  (4..10).to_a.sample.times do
+    create_user(city)
+  end
+end

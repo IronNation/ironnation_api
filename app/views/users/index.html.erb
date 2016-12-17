@@ -1,25 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<ul class="collection with-header">
+  <li class="collection-header"><h3>Registered Users</h3></li>
+  <% @cities.each do |school| %>
+    <li class="collection-header"><h4><%= school.city %></h4></li>
+    <% school.users.each do |user| %>
+      <li class="collection-item"><%= link_to user.name, user, class: "btn btn-primary" %> <%= mail_to user.email, NIL, class: "btn btn-primary"  %></li>
     <% end %>
-  </tbody>
-</table>
-
+  <% end %>
+</ul>
 <br>
 
 <%= link_to 'New User', new_user_path %>
