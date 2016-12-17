@@ -2,11 +2,11 @@
   <%= link_to image_tag('tiy_white.png', id: 'header-image'), root_path, class: "brand-logo", id: "logo-container" %>
   <ul class="right hide-on-med-and-down">
     <!-- Dropdown Trigger -->
-    <a class='dropdown-button white-text' href='#' data-activates='dropdown1'>Drop Me!<i class="material-icons right white-text">arrow_drop_down</i></a>
+    <a class='dropdown-button white-text' href='#' data-activates='dropdown1'>Drop It Like It's Hot!<i class="material-icons right white-text">arrow_drop_down</i></a>
 
     <!-- Dropdown Structure -->
     <ul id='dropdown1' class='dropdown-content'>
-      <li><%= link_to "Register as a Mentor", "#" %></li>
+      <li><%= link_to "Register as a Mentor", new_mentor_path %></li>
       <li class="divider"></li>
       <li><%= link_to "Judge Login", "#" %></li>
     </ul>

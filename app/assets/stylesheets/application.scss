@@ -76,3 +76,9 @@ html {
 span#taco{
   padding-right: 6px;
 }
+
+@media #{$medium-and-down} {
+  html {
+      font-size: 13px;
+  }
+}

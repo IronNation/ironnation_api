@@ -25,15 +25,17 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.first_or_initialize(user_params)
+    @user = User.create(user_params)
 
     respond_to do |format|
       if @user.save
         format.html { redirect_to root_path, notice: 'You have signed up!' }
         format.json { render :show, status: :created, location: @user }
+        format.js
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'You have Failed!' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.js { render 'form' }
       end
     end
   end

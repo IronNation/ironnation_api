@@ -51,6 +51,7 @@ GEM
     coffee-script-source (1.11.1)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.7.0)
     faker (1.6.6)
@@ -205,6 +206,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  dynamic_form
   faker
   figaro
   jbuilder (~> 2.5)
