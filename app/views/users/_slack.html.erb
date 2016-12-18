@@ -1,0 +1,23 @@
+
+<% @gif = ["http://i.giphy.com/TEFplLVRDMWBi.gif",
+        "http://i.giphy.com/WKhKazqZxORq0.gif",
+        "http://i.giphy.com/1HPzxMBCTvjMs.gif",
+        "http://i.giphy.com/9o67upvAnOqRy.gif",
+        "http://i.giphy.com/JQNM4AgN7lFUA.gif",
+        "http://i.giphy.com/vQ9JbgIWATcTS.gif",
+        "http://i.giphy.com/gdNlcJ1tAtiSI.gif",
+        "http://i.giphy.com/rgS5azacQACw8.gif"] %>
+
+  <div class="center">
+    <h2>Great Success!</h2>
+  </div>
+
+
+  <div class="center">
+    <%= image_tag @gif.sample, id: 'gif' %>
+  </div>
+
+  <div class="center">
+    <h1 class="center">👇 </h1>
+    <h3><%= link_to "Now, Sign Up for the Slack Channel!!", "https://aqueous-wave-44276.herokuapp.com/" %></h3>
+  </div>

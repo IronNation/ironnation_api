@@ -1,0 +1,20 @@
+<div class="container">
+  <p id="notice">
+    <% if notice %>
+      <script type="text/javascript">
+        Materialize.toast('<%= notice %>', 3000)
+      </script>
+    <% end %>
+</p>
+  <div class="center">
+    <h2>Great Success!</h2>
+  </div>
+  <div class="center">
+    <%= image_tag @gif.sample, id: 'gif' %>
+  </div>
+  <div class="center">
+    <h3>Now, Sign Up for the Slack Channel!!</h3>
+    <h1 class="center">👇 <br>
+    <script async defer src="https://aqueous-wave-44276.herokuapp.com/slackin.js?"></script></h1>
+  </div>
+</div>

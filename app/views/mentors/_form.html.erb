@@ -5,10 +5,13 @@
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :email %>
-    <%= f.association :schools, label: 'Mark The Campuses For Which You Will Be Available:', label_method: :city %>
+    <%= f.association :schools, label: 'Mark The Campuses For Which You Will Be Available:', label_method: :city, include_blank: 'Select Campus(es)' %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+<br>
+<br><br>
+<br>

@@ -8,6 +8,7 @@
 User.destroy_all
 Team.destroy_all
 School.destroy_all
+Mentor.destroy_all
 
 def create_city
   city_name = ["Houston", "San Antonio", "Austin", "Dallas", "Salt Lake City", "Las Vegas", "Tampa Bay", "Orlando", "Atlanta", "Durham", "Raleigh", "Charleston", "Charlotte", "Cincinnati", "Columbia", "Detroit", "Greenville", "Indianapolis", "Minneapolis", "Nashville", "Washington, D.C."]

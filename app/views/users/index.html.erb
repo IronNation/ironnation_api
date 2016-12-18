@@ -1,13 +1,24 @@
 
-<ul class="collection with-header">
-  <li class="collection-header"><h3>Registered Users</h3></li>
+<ul class="collapsible" data-collapsible="accordion">
   <% @cities.each do |school| %>
-    <li class="collection-header"><h4><%= school.city %></h4></li>
-    <% school.users.each do |user| %>
-      <li class="collection-item"><%= link_to user.name, user, class: "btn btn-primary" %> <%= mail_to user.email, NIL, class: "btn btn-primary"  %></li>
-    <% end %>
+  <li>
+    <div class="collapsible-header" id="schools"><h4><i class="material-icons">filter_drama</i><%= school.city %></h4> <div class="right-align"><%= link_to "Go To #{school.city} Page", school_path(school), class: "btn" %></div></div>
+    <div class="collapsible-body">
+      <ul class="collection with-header">
+        <% school.teams.each do |team| %>
+          <li class="collection-header"><h5><%= team.name %> Team</h5></li>
+            <% team.users.each do |user| %>
+              <li class="collection-item"><%= link_to user.name, user, class: "btn" %></li>
+            <% end %>
+        <% end %>
+          <li class="collection-header"><h5>Users w/ no team :sad_face:</h5></li>
+          <li class="collection-item">
+            <% school.users.where(team_id: nil).each do |user| %>
+              <%= link_to user.name, user, class: "btn" %>
+            <% end %>
+          </li>
+      </ul>
+    </div>
+  </li>
   <% end %>
 </ul>
-<br>
-
-<%= link_to 'New User', new_user_path %>

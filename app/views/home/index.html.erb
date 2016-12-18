@@ -1,7 +1,13 @@
 <div id="index-banner" class="parallax-container">
   <div class="section no-pad-bot">
     <div class="container">
-      <p id="notice"><%= notice %></p>
+      <p id="notice">
+        <% if notice %>
+          <script type="text/javascript">
+            Materialize.toast('<%= notice %>', 3000)
+          </script>
+        <% end %>
+    </p>
 
       <!-- banner section -->
       <%= render 'banner_info' %>

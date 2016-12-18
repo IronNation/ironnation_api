@@ -4,8 +4,19 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @cities = School.all
+    @cities = School.order(:city).all
     @users = User.all
+  end
+
+  def success
+    @gif = ["http://i.giphy.com/TEFplLVRDMWBi.gif",
+            "http://i.giphy.com/WKhKazqZxORq0.gif",
+            "http://i.giphy.com/1HPzxMBCTvjMs.gif",
+            "http://i.giphy.com/9o67upvAnOqRy.gif",
+            "http://i.giphy.com/JQNM4AgN7lFUA.gif",
+            "http://i.giphy.com/vQ9JbgIWATcTS.gif",
+            "http://i.giphy.com/gdNlcJ1tAtiSI.gif",
+            "http://i.giphy.com/rgS5azacQACw8.gif"]
   end
 
   # GET /users/1
@@ -29,7 +40,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: 'You have signed up!' }
+        format.html { redirect_to slack_path, notice: 'Hizaugh!' }
         format.json { render :show, status: :created, location: @user }
         format.js
       else

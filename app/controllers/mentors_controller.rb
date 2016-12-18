@@ -28,7 +28,7 @@ class MentorsController < ApplicationController
 
     respond_to do |format|
       if @mentor.save
-        format.html { redirect_to root_path, notice: 'Mentor was successfully created.' }
+        format.html { redirect_to slack_path, notice: 'Hizaugh!!' }
         format.json { render :show, status: :created, location: @mentor }
       else
         format.html { render :new }
