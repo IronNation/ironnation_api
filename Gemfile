@@ -24,7 +24,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'rails_admin', '~> 1.0'
-# gem 'devise'
+gem 'devise'
 gem 'rails_12factor', group: :production
 gem 'figaro'
 gem 'simple_form'

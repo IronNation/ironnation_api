@@ -1,5 +1,11 @@
 $(document).on('turbolinks:load', function() {
-  $('.button-collapse').sideNav()
+
+  $('.button-collapse').sideNav({
+     menuWidth: 250, // Default is 240
+     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+     draggable: true // Choose whether you can drag to open on touch screens
+   }
+ );
 
   $('.parallax').parallax()
 
@@ -10,6 +16,9 @@ $(document).on('turbolinks:load', function() {
   $(".dropdown-button").dropdown({
     belowOrigin: true
   });
+
+  $.each($(':checkbox'), function(k, v) { var label = $('label[for="' + this.id + '"]');
+      $(this).insertBefore(label); });
 
 
 });

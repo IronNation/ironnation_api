@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @cities = School.order(:city).all
+    @cities = School.order(:city).joins(:users).distinct.all
     @users = User.all
   end
 

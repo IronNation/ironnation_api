@@ -19,6 +19,14 @@ def create_city
   end
 end
 
+def create_mentor(city)
+  mentor = Mentor.new
+  mentor.first_name = Faker::Name.first_name
+  mentor.last_name = Faker::Name.last_name
+  mentor.email = Faker::Internet.email
+  mentor.schools << city
+  mentor.save!
+end
 
 def create_user(city)
   user = User.new
@@ -31,8 +39,13 @@ end
 
 create_city
 
+15.times do
+  create_mentor(School.all.sample)
+end
+
 School.all.each do |city|
   (4..10).to_a.sample.times do
     create_user(city)
   end
+  create_mentor(city)
 end

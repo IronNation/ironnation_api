@@ -8,14 +8,52 @@
     <ul id='dropdown1' class='dropdown-content'>
       <li><%= link_to "Register as a Mentor", new_mentor_path %></li>
       <li class="divider"></li>
-      <li><%= link_to "Judge Login", "#" %></li>
+      <li><%= link_to "IronNation Github", "https://github.com/IronNation", class: "waves-effect", target: "_blank" %></li>
+      <li><%= link_to "Slack Team", "https://ironnationhack.slack.com", class: "waves-effect", target: "_blank" %></li>
+      <li><%= link_to "#ironnationhack", "https://twitter.com/search?f=tweets&q=%23ironnationhack&src=typd", class: "waves-effect", target: "_blank" %></li>
+      <% if judge_signed_in? %>
+        <li>
+        <%= link_to('Logout', destroy_judge_session_path, :method => :delete) %>
+        </li>
+      <% else %>
+        <li>
+        <%= link_to('Judging Login', judges_path)  %>
+        </li>
+      <% end %>
+      <% if judge_signed_in? %>
+        <li><div class="divider"></div></li>
+        <li><%= link_to "Judging Stuff", judges_path, class: "waves-effect" %></li>
+      <% end %>
     </ul>
   </ul>
-
   <ul id="nav-mobile" class="side-nav">
-    <li><%= link_to "Register as a Mentor", "#" %></li>
-    <li class="divider"></li>
-    <li><%= link_to "Judge Login", "#" %></li>
+    <li>
+      <div class="userView">
+        <%= link_to root_path do %>
+        <%= image_tag "https://www.theironyard.com/etc/designs/theironyard/icons/iron-yard-logo.svg" %>
+        <% end %>
+      </div>
+    </li>
+    <li><%= link_to "Register as a Mentor", new_mentor_path, class: "waves-effect" %></li>
+    <% if judge_signed_in? %>
+    <li>
+    <%= link_to('Logout', destroy_judge_session_path, :method => :delete) %>
+    </li>
+    <% else %>
+    <li>
+    <%= link_to('Judging Login', judges_path)  %>
+    </li>
+    <% end %>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Additional Links</a></li>
+    <li><%= link_to "IronNation Github", "https://github.com/IronNation", class: "waves-effect", target: "_blank" %></li>
+    <li><%= link_to "Slack Team", "https://ironnationhack.slack.com", class: "waves-effect", target: "_blank" %></li>
+    <li><%= link_to "#ironnationhack", "https://twitter.com/search?f=tweets&q=%23ironnationhack&src=typd", class: "waves-effect", target: "_blank" %></li>
+    <% if judge_signed_in? %>
+    <li><div class="divider"></div></li>
+    <li><%= link_to "Judging Stuff", judges_path, class: "waves-effect" %></li>
+    <% end %>
+
   </ul>
   <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 </div>
