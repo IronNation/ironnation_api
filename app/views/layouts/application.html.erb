@@ -12,23 +12,22 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-  <body>
-      <nav class="tiygray" role="navigation">
-        <%= render 'layouts/nav' %>
-      </nav>
-      <div class="container">
-        <p id="notice">
-          <% if notice %>
-            <script type="text/javascript">
-              Materialize.toast('<%= notice %>', 3000)
-            </script>
-          <% end %>
-        </p>
-        <%= yield %>
-      </div>
-
-    <footer class="page-footer teal">
-      <%= render 'layouts/footer' %>
-    </footer>
-  </body>
+<body>
+  <nav class="tiygray" role="navigation">
+    <%= render 'layouts/nav' %>
+  </nav>
+  <main class="container">
+    <p id="notice">
+      <% if notice %>
+        <script type="text/javascript">
+          Materialize.toast('<%= notice %>', 3000)
+        </script>
+      <% end %>
+    </p>
+    <%= yield %>
+  </main>
+  <footer class="page-footer teal">
+    <%= render 'layouts/footer' %>
+  </footer>
+</body>
 </html>

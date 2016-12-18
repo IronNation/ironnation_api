@@ -2,7 +2,11 @@
 @import 'materialize';
 
 .tiygray {
-  background-color: #2b3133 !important;
+  background-color: #233139 !important;
+}
+
+.tiygray-text {
+  color: #39464e !important;
 }
 
 nav ul a,
@@ -84,4 +88,14 @@ span#taco{
 }
 
 #gif {
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+  flex: 1 0 auto;
 }

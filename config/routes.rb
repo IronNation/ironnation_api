@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :judges
+  devise_for :judges, :controllers => { registrations: 'registrations' }
 
   resources :judges
   resources :mentors

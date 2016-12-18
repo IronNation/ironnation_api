@@ -1,29 +1,41 @@
 <div class="row">
-  <div class="col s12 m4">
-    <div class="icon-block">
-      <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-      <h5 class="center brown-text">Iteration and Innovation</h5>
-      <p class="light">See what kind of magic you can spin up in a weekend! Get going on that idea that has been begging for your attention, if that's your thing. Get some new ideas and knowledge working with a new stack. See what is possible with team work, caffiene, and a ticking clock. Your portfolio will thank you.</p>
+  <div class="col s12 m6 l4">
+    <div class="card hoverable large">
+      <div class="card-content">
+        <div class="icon-block">
+          <h2 class="center tiygray-text"><i class="material-icons">flash_on</i></h2>
+          <h5 class="center tiygray-text">Iteration and Innovation</h5>
+          <p class="light tiygray-text">See what kind of magic you can spin up in a weekend! Get going on that idea that has been begging for your attention, if that's your thing. Get some new ideas and knowledge working with a new stack. See what is possible with team work, caffiene, and a ticking clock. Your portfolio will thank you.</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="col s12 m4">
-    <div class="icon-block">
-      <%= link_to(users_path) do %>
-        <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-        <h5 class="center brown-text">The Iron Yard, Everywhere</h5>
-      <% end %>
-      <p class="light">Team up with talened Iron Yard folks around the globe. Tune in from your favorite coffee shop, kitchen table, or a participating Iron Yard campus. Collaborate with folks from your cohort, or develop new relationships with someone new.</p>
+  <div class="col s12 m6 l4">
+    <%= link_to(users_path) do %>
+    <div class="card hoverable large">
+      <div class="card-content">
+        <div class="icon-block">
+            <h2 class="center tiygray-text"><i class="material-icons">group</i></h2>
+            <h5 class="center tiygray-text">The Iron Yard, Everywhere</h5>
+          <p class="light tiygray-text">Team up with talened Iron Yard folks around the globe. Tune in from your favorite coffee shop, kitchen table, or a participating Iron Yard campus. Collaborate with folks from your cohort, or develop new relationships with someone new.</p>
+        </div>
+      </div>
     </div>
+    <% end %>
   </div>
 
-  <div class="col s12 m4">
-    <div class="icon-block">
-      <%= link_to "https://github.com/orgs/IronNation/projects" do %>
-        <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-        <h5 class="center brown-text">New Solutions for the New Year</h5>
-      <% end %>
-      <p class="light">Get the new year started with new solutions. Find a problem, and make a difference in your community.</p>
+  <div class="col s12 m6 l4">
+    <%= link_to "https://github.com/orgs/IronNation/projects", target: "_blank" do %>
+    <div class="card hoverable large">
+      <div class="card-content">
+        <div class="icon-block">
+            <h2 class="center tiygray-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center tiygray-text">New Solutions for the New Year</h5>
+          <p class="light tiygray-text">Get the new year started with new solutions. Find a problem, and make a difference in your community.</p>
+        </div>
+      </div>
     </div>
+    <% end %>
   </div>
 </div>
