@@ -19,32 +19,33 @@
   <div class="parallax"><%= image_tag 'tiy1.jpg' %></div>
 </div>
 
-
-<div class="container">
-  <div class="section">
-    <!--   Icon Section   -->
-    <%= render 'icon_section' %>
-  </div>
-</div>
-
-
-<div class="parallax-container valign-wrapper">
-  <div class="section no-pad-bot">
-    <div class="container">
-
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send tiygray-text"></i></h3>
-          <h4 class="white-text">Contact Us</h4>
-          <p class="center light white-text">Add an issue to the Github page, and join the conversation on Slack!</p>
-        </div>
-      </div>
-
-
+<% if user_signed_in? %>
+  <div class="container">
+    <div class="section">
+      <!--   Icon Section   -->
+      <%= render 'icon_section' %>
     </div>
   </div>
-  <div class="parallax"><%= image_tag 'tiy2.jpg' %></div>
-</div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+
+        <div class="row">
+          <div class="col s12 center">
+            <h3><i class="mdi-content-send tiygray-text"></i></h3>
+            <h4 class="white-text">Contact Us</h4>
+            <p class="center light white-text">Add an issue to the Github page, and join the conversation on Slack!</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="parallax"><%= image_tag 'tiy2.jpg' %></div>
+  </div>
+<% end %>
 
 <div class="container">
   <div class="section">
