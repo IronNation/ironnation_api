@@ -4,5 +4,7 @@
   <h5 class="header col s12 light hide-on-small-only">For Iron Yarders, By Iron Yarders</h5>
 </div>
 <div class="row center">
-  <a href="#signup" class="modal-trigger btn-large waves-effect waves-light teal lighten-1">Sign Up!</a>
+  <% unless user_signed_in? %>
+    <%= link_to "Sign Up/Sign In #{icon('github')}".html_safe, user_github_omniauth_authorize_path, class: "btn-large waves-effect waves-light teal lighten-1" %>
+  <% end %>
 </div>

@@ -6,22 +6,31 @@
 
     <!-- Dropdown Structure -->
     <ul id='dropdown1' class='dropdown-content'>
+      <% if user_signed_in? %>
+      <li><%= link_to current_user.name, user_path(current_user) %></li>
+      <% else %>
       <li><%= link_to "Register as a Mentor", new_mentor_path %></li>
+      <% end %>
       <li class="divider"></li>
       <li><%= link_to "IronNation Github", "https://github.com/IronNation", class: "waves-effect", target: "_blank" %></li>
       <li><%= link_to "Slack Team", "https://ironnationhack.slack.com", class: "waves-effect", target: "_blank" %></li>
       <li><%= link_to "#ironnationhack", "https://twitter.com/search?f=tweets&q=%23ironnationhack&src=typd", class: "waves-effect", target: "_blank" %></li>
-      <% if judge_signed_in? %>
-        <li class="divider"></li>
-        <li><%= link_to "Judging Stuff", judges_path, class: "waves-effect" %></li>
-        <li>
-        <%= link_to('Logout', destroy_judge_session_path, :method => :delete) %>
-        </li>
-      <% else %>
-        <li class="divider"></li>
-        <li>
-        <%= link_to('Judging Login', judges_path)  %>
-        </li>
+      <% unless user_signed_in? %>
+        <% if judge_signed_in? %>
+          <li class="divider"></li>
+          <li><%= link_to "Judging Stuff", judges_path, class: "waves-effect" %></li>
+          <li>
+          <%= link_to('Logout', destroy_judge_session_path, :method => :delete) %>
+          </li>
+        <% else %>
+          <li class="divider"></li>
+          <li>
+          <%= link_to('Judging Login', judges_path)  %>
+          </li>
+        <% end %>
+      <% end %>
+      <% if user_signed_in? %>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
       <% end %>
     </ul>
   </ul>
@@ -29,30 +38,39 @@
     <li>
       <div class="userView">
         <%= link_to root_path do %>
-        <%= image_tag "https://www.theironyard.com/etc/designs/theironyard/icons/iron-yard-logo.svg" %>
+        <% if user_signed_in? %>
+          <%= image_tag current_user.avatar_url, class: "circle" if current_user.avatar_url.present? %>
+          <%= link_to current_user.name, user_path(current_user) %>
+          <%= mail_to current_user.email, nil, class: "email"  %>
+          <% else %>
+          <%= image_tag "https://www.theironyard.com/etc/designs/theironyard/icons/iron-yard-logo.svg" %>
+        <% end %>
         <% end %>
       </div>
     </li>
-    <li><%= link_to "Register as a Mentor", new_mentor_path, class: "waves-effect" %></li>
+    <li><%= link_to "Register as a Mentor", new_mentor_path, class: "waves-effect" unless user_signed_in? %></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">Additional Links</a></li>
     <li><%= link_to "IronNation Github", "https://github.com/IronNation", class: "waves-effect", target: "_blank" %></li>
     <li><%= link_to "Slack Team", "https://ironnationhack.slack.com", class: "waves-effect", target: "_blank" %></li>
     <li><%= link_to "#ironnationhack", "https://twitter.com/search?f=tweets&q=%23ironnationhack&src=typd", class: "waves-effect", target: "_blank" %></li>
-    <% if judge_signed_in? %>
-      <li class="divider"></li>
-      <li><a class="subheader">Stuff For Judges</a></li>
-      <li><%= link_to "Judging Stuff", judges_path, class: "waves-effect" %></li>
-      <li>
-      <%= link_to('Logout', destroy_judge_session_path, :method => :delete) %>
-      </li>
-    <% else %>
-      <li class="divider"></li>
-      <li><a class="subheader">Stuff For Judges</a></li>
-      <li>
-      <%= link_to('Judging Login', judges_path)  %>
-      </li>
+    <% unless user_signed_in? %>
+      <% if judge_signed_in? %>
+        <li class="divider"></li>
+        <li><a class="subheader">Stuff For Judges</a></li>
+        <li><%= link_to "Judging Stuff", judges_path, class: "waves-effect" %></li>
+        <li>
+        <%= link_to('Logout', destroy_judge_session_path, :method => :delete) %>
+        </li>
+      <% else %>
+        <li class="divider"></li>
+        <li><a class="subheader">Stuff For Judges</a></li>
+        <li>
+        <%= link_to('Judging Login', judges_path)  %>
+        </li>
+      <% end %>
     <% end %>
+    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) if user_signed_in? %></li>
 
   </ul>
   <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>

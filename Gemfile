@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rails_admin', '~> 1.0'
 gem 'devise'
+gem 'omniauth-github'
 gem 'rails_12factor', group: :production
 gem 'figaro'
 gem 'simple_form'
@@ -38,6 +39,7 @@ gem 'octokit'
 # gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
 # gem 'refile-postgres'
 gem 'materialize-sass'
+gem 'font-awesome-sass', '~> 4.7.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
