@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  belongs_to :team
+  belongs_to :team, dependent: :destroy
   belongs_to :school
-  validates :email, :last_name, :first_name, presence: true
-  validates :email, uniqueness: true
+  validates :last_name, :first_name, :github_username, presence: true
+  validates :github_username, :email, uniqueness: true
 
 
   def name

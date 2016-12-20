@@ -36,10 +36,15 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    octokit = Octokit::Client.new(:access_token => ENV["git_token"])
+
     @user = User.create(user_params)
 
     respond_to do |format|
       if @user.save
+        github_user = octokit.user "#{@user.github_username}"
+        @user.update_attributes(avatar_url: github_user.avatar_url)
+        octokit.add_team_membership(2217734, @user.github_username)
         format.html { redirect_to slack_path, notice: 'Hizaugh!' }
         format.json { render :show, status: :created, location: @user }
         format.js
@@ -83,6 +88,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :team_id, :school_id)
+      params.require(:user).permit(:first_name, :last_name, :email, :github_username, :avatar_url, :team_id, :school_id)
     end
 end

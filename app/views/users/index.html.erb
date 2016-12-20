@@ -16,20 +16,21 @@
   </div>
 
     <div class="collapsible-body">
-      <ul class="collection with-header">
-        <% school.teams.each do |team| %>
-          <li class="collection-header"><h5><%= team.name %> Team</h5></li>
-            <% team.users.each do |user| %>
-              <li class="collection-item"><%= link_to user.name, user, class: "btn" %></li>
-            <% end %>
-        <% end %>
-          <li class="collection-header"><h5>Users w/ no team :sad_face:</h5></li>
-          <li class="collection-item">
-            <% school.users.where(team_id: nil).each do |user| %>
-              <%= link_to user.name, user, class: "btn" %>
-            <% end %>
-          </li>
-      </ul>
+      <ul class="collection">
+        <% school.users.each do |user| %>
+            <li class="collection-item avatar">
+              <% if user.avatar_url.present? %>
+                <%= image_tag user.avatar_url, class: "circle" %>
+              <% else %>
+                <%= image_tag "avatar.png", class: "circle" %>
+              <% end %>
+              <span class="title"><%= user.name %></span>
+              <p>
+                <%= "Team: #{user.team.name}" if user.team %>
+              </p>
+            </li>
+          <% end %>
+        </ul>
     </div>
   </li>
   <% end %>
