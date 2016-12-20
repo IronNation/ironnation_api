@@ -67,8 +67,8 @@ footer.page-footer {
 
 @font-face {
   font-family: "Tisa";
-  src: local(Tisa Thin), url("tisa/TisaPro.eot");
-  src: url("tisa/TisaPro.eot?#iefix") format("embedded-opentype"), url("tisa/TisaPro.woff2") format("woff2"), url("tisa/TisaPro.woff") format("woff"), url("tisa/TisaPro.ttf") format("truetype");
+  src: local(Tisa Thin), font-url("tisa/TisaPro.eot");
+  src: font-url("tisa/TisaPro.eot?#iefix") format("embedded-opentype"), font-url("tisa/TisaPro.woff2") format("woff2"), font-url("tisa/TisaPro.woff") format("woff"), font-url("tisa/TisaPro.ttf") format("truetype");
   font-weight: 200;
 }
 
