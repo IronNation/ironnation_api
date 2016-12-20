@@ -5,6 +5,6 @@
 </div>
 <div class="row center">
   <% unless user_signed_in? %>
-    <%= link_to "Sign Up/Sign In #{icon('github')}".html_safe, user_github_omniauth_authorize_path, class: "btn-large waves-effect waves-light teal lighten-1" %>
+    <%= link_to "Participant Sign In w/ #{icon('github')}".html_safe, user_github_omniauth_authorize_path, class: "btn-large waves-effect waves-light teal lighten-1" %>
   <% end %>
 </div>
