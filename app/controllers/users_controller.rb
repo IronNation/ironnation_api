@@ -61,13 +61,11 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-        format.js
+        octokit = Octokit::Client.new(:access_token => ENV["git_token"])
+        octokit.add_team_membership(2217734, @user.github_username)
+        format.html { redirect_to root_path }
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-        format.js
+        format.html { redirect_to root_path }
       end
     end
   end

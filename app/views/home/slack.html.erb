@@ -22,21 +22,18 @@
   </div>
   <div class="row">
     <div class="col l3"></div>
-    <div class="col s12 m12 l6">
-      <%= simple_form_for(@user, remote: true) do |f| %>
+    <div class="col s12 m12 l6 row">
+      <%= simple_form_for(@user) do |f| %>
         <%= f.error_notification %>
 
-        <div class="form-inputs">
+        <div class="row form-inputs">
           <%= f.association :school, label: "Campus", prompt: "Select Your Campus", label_method: :city %>
         </div>
 
-        <div class="form-actions">
-          <%= f.button :submit %>
-        </div>
-      <% end %>
-    </div>
+
     <div class="col l3"></div>
   </div>
+</div>
 
 <div class="divider"></div>
   <div class="row center">
@@ -44,12 +41,17 @@
     <h1 class="center">👇 <br>
     <script async defer src="https://aqueous-wave-44276.herokuapp.com/slackin.js?large"></script></h1>
   </div>
-</div>
 
 <div class="divider"></div>
-<div class="row">
+<div class="row center">
   <h3>That's it. Let's Get Hacking!</h3>
 </div>
-<div class="row">
-  <%= link_to "Get Started", root_path, class: "btn-large btn-primary" %>
+
+<div class="row center">
+  <div class="form-actions">
+    <%= f.button :submit, "Let's Get Started!" %>
+  </div>
+</div>
+
+<% end %>
 </div>
