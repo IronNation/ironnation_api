@@ -24,7 +24,7 @@
               <% else %>
                 <%= image_tag "avatar.png", class: "circle" %>
               <% end %>
-              <span class="title"><%= user.name %></span>
+              <span class="title"><%= link_to user.name, user %></span>
               <p>
                 <%= "Team: #{user.team.name}" if user.team %>
               </p>
