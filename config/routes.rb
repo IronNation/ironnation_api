@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :mentors
   get 'home/index'
   get 'slack', to: 'home#slack', as: 'slack'
+  get 'slack_mentor', to: 'home#slack_mentor', as: 'slack_mentor'
+
 
   resources :users
   resources :teams
