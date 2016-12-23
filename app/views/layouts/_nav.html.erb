@@ -72,7 +72,7 @@
     <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) if user_signed_in? %></li>
     <li>
       <div class="userView">
-        <%= link_to root_path do %>
+        <%= link_to "https://www.theironyard.com", target: "_blank" do %>
         <% if user_signed_in? %>
           <% else %>
           <div class="row">
