@@ -83,11 +83,6 @@ span#taco{
   padding-right: 6px;
 }
 
-@media #{$medium-and-down} {
-  html {
-      font-size: 13px;
-  }
-}
 
 #gif {
 }
@@ -104,4 +99,20 @@ main {
 
 #profile {
   max-width: 200px;
+}
+
+@media #{$medium-and-down} {
+  html {
+      font-size: 13px;
+  }
+  #footer_about, #footer_logo {
+    text-align: center;
+  }
+}
+
+@media #{$large-and-up} {
+
+  #footer_logo {
+    text-align: right;
+  }
 }

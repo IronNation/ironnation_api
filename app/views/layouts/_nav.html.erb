@@ -1,5 +1,5 @@
 <div class="nav-wrapper container">
-  <%= link_to image_tag('tiy_white.png', id: 'header-image'), root_path, class: "brand-logo", id: "logo-container" %>
+  <%= link_to "The Iron Nation", root_path, class: "brand-logo white-text", id: "logo-container" %>
   <ul class="right hide-on-med-and-down">
     <!-- Dropdown Trigger -->
     <a class='dropdown-button white-text' href='#' data-activates='dropdown1'>Drop It Like It's Hot!<i class="material-icons right white-text">arrow_drop_down</i></a>
@@ -43,7 +43,6 @@
           <%= link_to current_user.name, user_path(current_user) %>
           <%= mail_to current_user.email, nil, class: "email"  %>
           <% else %>
-          <%= image_tag "https://www.theironyard.com/etc/designs/theironyard/icons/iron-yard-logo.svg" %>
         <% end %>
         <% end %>
       </div>
@@ -71,7 +70,21 @@
       <% end %>
     <% end %>
     <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) if user_signed_in? %></li>
-
+    <li>
+      <div class="userView">
+        <%= link_to root_path do %>
+        <% if user_signed_in? %>
+          <% else %>
+          <div class="row">
+            <h5>Presented by</h5>
+          </div>
+          <div class="row">
+            <%= image_tag "https://www.theironyard.com/etc/designs/theironyard/icons/iron-yard-logo.svg" %>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
+    </li>
   </ul>
   <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 </div>
