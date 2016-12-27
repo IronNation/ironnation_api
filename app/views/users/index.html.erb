@@ -21,10 +21,10 @@
                 <%= image_tag "avatar.png", class: "circle" %>
               <% end %>
               <span class="title"><%= link_to user.name, user %></span>
-              <% if user.team.present? %>
-              <p>
-                <%= "Team: #{user.team.name}" unless user.team.name == "The Iron Nation" %>
-              </p>
+              <% if user.team.present? && user.team.name != "The Iron Nation"%>
+                <%= content_tag :p do %>
+                  <%= "Team: #{user.team.name}" %>
+                <% end  %>
               <% end %>
             </li>
           <% end %>
