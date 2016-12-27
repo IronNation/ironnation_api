@@ -6,6 +6,7 @@
       <div class="col s12 m12 l8">
         <%= f.input :first_name %>
         <%= f.input :last_name %>
+        <%= f.input :github_username %>
         <%= f.input :email %>
         <%= f.association :schools, label: 'Mark The Campuses For Which You Will Be Available:', label_method: :city, include_blank: 'Select Campus(es)' %>
       </div>

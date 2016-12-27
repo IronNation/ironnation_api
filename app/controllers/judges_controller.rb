@@ -29,7 +29,7 @@ class JudgesController < ApplicationController
 
     respond_to do |format|
       if @judge.save
-        format.html { redirect_to @judge, notice: 'Judge was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Judge was successfully created.' }
         format.json { render :show, status: :created, location: @judge }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class JudgesController < ApplicationController
   def update
     respond_to do |format|
       if @judge.update(judge_params)
-        format.html { redirect_to @judge, notice: 'Judge was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Judge was successfully updated.' }
         format.json { render :show, status: :ok, location: @judge }
       else
         format.html { render :edit }

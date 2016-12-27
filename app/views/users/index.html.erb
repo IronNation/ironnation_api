@@ -9,12 +9,8 @@
       <div class="col s12 l6">
         <h4><i class="material-icons">perm_identity</i><%= school.city %></h4>
       </div>
-      <!-- <div class="col s12 l6">
-        <div class="right-align"><%= link_to "Go To #{school.city} Page", school_path(school), class: "btn" %></div>
-      </div> -->
     </div>
   </div>
-
     <div class="collapsible-body">
       <ul class="collection">
         <% school.users.each do |user| %>
@@ -31,6 +27,21 @@
             </li>
           <% end %>
         </ul>
+        <% if school.mentors.present? %>
+        <ul class="collection with-header">
+          <li class="collection-header"><h5><%= school.city %> Mentors</h5></li>
+          <% school.mentors.each do |mentor| %>
+          <li class="collection-item avatar">
+            <% if mentor.avatar.present? %>
+              <%= image_tag mentor.avatar, class: "circle" %>
+            <% else %>
+              <%= image_tag "avatar.png", class: "circle" %>
+            <% end %>
+            <span class="title"><%= link_to mentor.name, mentor %></span>
+          </li>
+          <% end %>
+        </ul>
+        <% end %>
     </div>
   </li>
   <% end %>

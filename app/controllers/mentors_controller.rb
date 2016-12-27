@@ -24,10 +24,16 @@ class MentorsController < ApplicationController
   # POST /mentors
   # POST /mentors.json
   def create
+    octokit = Octokit::Client.new(:access_token => ENV["git_token"])
+
     @mentor = Mentor.new(mentor_params)
+
 
     respond_to do |format|
       if @mentor.save
+        github_user = octokit.user "#{@mentor.github_username}"
+        @mentor.update_attributes(avatar: github_user.avatar_url)
+        octokit.add_team_membership(2217734, @mentor.github_username)
         format.html { redirect_to slack_mentor_path, notice: 'Hizaugh!!' }
         format.json { render :show, status: :created, location: @mentor }
       else
@@ -69,6 +75,6 @@ class MentorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mentor_params
-      params.require(:mentor).permit(:first_name, :last_name, :email, school_ids:[])
+      params.require(:mentor).permit(:first_name, :last_name, :email, :github_username, school_ids:[])
     end
 end

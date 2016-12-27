@@ -1,25 +1,11 @@
-<p id="notice"><%= notice %></p>
+<h2>All Teams</h2>
 
-<h1>Teams</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% School.joins(:teams).distinct.each do |campus| %>
+  <ul class="collection with-header">
+    <li class="collection-header"><h4><%= campus.city %></h4></li>
+    <% campus.teams.each do |team| %>
+      <li class="collection-item"><%= team.name %></li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
 
-<br>
-
-<%= link_to 'New Team', new_team_path %>
+<% end %>
