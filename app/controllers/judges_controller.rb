@@ -5,7 +5,8 @@ class JudgesController < ApplicationController
   # GET /judges
   # GET /judges.json
   def index
-    # @judges = Judge.all
+    @teams = Team.all
+    @schools = School.joins(:teams).distinct
   end
 
   # GET /judges/1
