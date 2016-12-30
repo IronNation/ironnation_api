@@ -34,7 +34,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [:github_username]
+  config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -129,7 +129,7 @@ Devise.setup do |config|
   # before confirming their account.
   # config.confirm_within = 3.days
   config.omniauth :github, ENV['GH_BASIC_CLIENT_ID'], ENV['GH_BASIC_SECRET_ID']
-  # config.omniauth :github, ENV['gh_dev_client'], ENV['gh_dev_secret']
+  #config.omniauth :github, ENV['gh_dev_client'], ENV['gh_dev_secret']
 
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
