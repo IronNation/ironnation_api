@@ -8,6 +8,10 @@ class User < ApplicationRecord
   validates :last_name, :first_name, :github_username, presence: true
   validates :github_username, uniqueness: true
 
+  ratyrate_rater
+
+  scope :judge, -> {where(judge: true)}
+
   def email_required?
     false
   end
@@ -28,7 +32,6 @@ class User < ApplicationRecord
         user.password = Devise.friendly_token[0,20]
       end
   end
-
 
 
   def name

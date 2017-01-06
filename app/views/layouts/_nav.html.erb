@@ -15,19 +15,15 @@
       <li><%= link_to "IronNation Github", "https://github.com/IronNation", class: "waves-effect", target: "_blank" %></li>
       <li><%= link_to "Slack Team", "https://ironnationhack.slack.com", class: "waves-effect", target: "_blank" %></li>
       <li><%= link_to "#ironnationhack", "https://twitter.com/search?f=tweets&q=%23ironnationhack&src=typd", class: "waves-effect", target: "_blank" %></li>
-      <% unless user_signed_in? %>
-        <% if judge_signed_in? %>
+      <% if user_signed_in? %>
+
           <li class="divider"></li>
-          <li><%= link_to "Judging Stuff", judges_path, class: "waves-effect" %></li>
-          <li>
-          <%= link_to('Logout', destroy_judge_session_path, :method => :delete) %>
-          </li>
+          <li><%= link_to "Judging Stuff", teams_path, class: "waves-effect" %></li>
         <% else %>
           <li class="divider"></li>
           <li>
-          <%= link_to('Judging Login', judges_path)  %>
+          <%= link_to('Judging Login', new_user_session_path)  %>
           </li>
-        <% end %>
       <% end %>
       <% if user_signed_in? %>
         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
@@ -53,11 +49,11 @@
     <li><%= link_to "IronNation Github", "https://github.com/IronNation", class: "waves-effect", target: "_blank" %></li>
     <li><%= link_to "Slack Team", "https://ironnationhack.slack.com", class: "waves-effect", target: "_blank" %></li>
     <li><%= link_to "#ironnationhack", "https://twitter.com/search?f=tweets&q=%23ironnationhack&src=typd", class: "waves-effect", target: "_blank" %></li>
-    <% unless user_signed_in? %>
-      <% if judge_signed_in? %>
+    <% if user_signed_in? %>
+      <% if current_user.judge? %>
         <li class="divider"></li>
         <li><a class="subheader">Stuff For Judges</a></li>
-        <li><%= link_to "Judging Stuff", judges_path, class: "waves-effect" %></li>
+        <li><%= link_to "Judging Stuff", teams_path, class: "waves-effect" %></li>
         <li>
         <%= link_to('Logout', destroy_judge_session_path, :method => :delete) %>
         </li>
@@ -65,7 +61,7 @@
         <li class="divider"></li>
         <li><a class="subheader">Stuff For Judges</a></li>
         <li>
-        <%= link_to('Judging Login', judges_path)  %>
+        <%= link_to('Judging Login', new_user_session_path)  %>
         </li>
       <% end %>
     <% end %>

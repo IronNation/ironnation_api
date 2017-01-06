@@ -1,15 +1,26 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    if current_user.judge?
+      @teams = Team.all
+    else
+      redirect_to root_path
+    end
   end
+
 
   # GET /teams/1
   # GET /teams/1.json
   def show
+    if current_user.judge?
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /teams/new
@@ -19,6 +30,10 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
+    if current_user.judge?
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /teams
@@ -59,6 +74,12 @@ class TeamsController < ApplicationController
       format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def results
+    @top_tech = RatingCache.where(dimension: "tech").order(avg: :DESC).first(5)
+    @top_creativity = RatingCache.where(dimension: "creativity").order(avg: :DESC).first(5)
+    @top_application = RatingCache.where(dimension: "real_world_application").order(avg: :DESC).first(5)
   end
 
   private

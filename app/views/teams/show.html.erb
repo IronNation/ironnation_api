@@ -1,1 +1,15 @@
 <h2><%= @team.name %></h2>
+
+<ul class="collection with-header">
+  <li class="collection-header"><h4>Team Members</h4></li>
+  <% @team.users.each do |user| %>
+  <li class="collection-item"><%= link_to user.name, user %> - (<%= user.school.city %>)</li>
+  <% end %>
+</ul>
+
+<% if current_user.judge? %>
+Tech  : <%= rating_for @team, 'tech', stars: 10 %>
+Creativity : <%= rating_for @team, 'creativity', stars: 10 %>
+Real World Application  : <%= rating_for @team, 'real_world_application', stars: 10 %>
+
+<% end %>

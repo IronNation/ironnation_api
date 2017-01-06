@@ -45,7 +45,11 @@ class UsersController < ApplicationController
         github_user = octokit.user "#{@user.github_username}"
         @user.update_attributes(avatar_url: github_user.avatar_url)
         octokit.add_team_membership(2217734, @user.github_username)
-        format.html { redirect_to slack_path, notice: 'Hizaugh!' }
+        if @user.judge?
+          format.html { redirect_to teams_path, notice: 'Hizaugh!' }
+        else
+          format.html { redirect_to slack_path, notice: 'Hizaugh!' }
+        end
         format.json { render :show, status: :created, location: @user }
         format.js
       else
