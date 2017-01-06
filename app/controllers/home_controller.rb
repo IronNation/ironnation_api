@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
     if user_signed_in?
       if current_user.school_id.nil?
-        redirect_to slack_path
+        redirect_to slack_path unless current_user.judge?
       else
       end
     else

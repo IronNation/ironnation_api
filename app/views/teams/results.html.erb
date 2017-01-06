@@ -1,0 +1,36 @@
+Here are the results:
+
+<ul class="collection with-header">
+  <li class="collection-header"><h4>Top Overall Teams</h4></li>
+  <li class="collection-item">Alvin</li>
+</ul>
+
+<ul class="collection with-header">
+  <li class="collection-header"><h4>Top Tech Teams</h4></li>
+  <ol>
+  <% @top_tech.each do |tt| %>
+    <li class="collection-item" id="ordered"><%= Team.find(tt.cacheable_id).name %>(<%= Team.find(tt.cacheable_id).school.city %>)<br /> Average - <%= tt.avg %></li>
+  <% end %>
+</ol>
+
+</ul>
+
+
+<ul class="collection with-header">
+  <li class="collection-header"><h4>Top Real World Application Teams</h4></li>
+  <ol>
+    <% @top_application.each do |ta| %>
+    <li class="collection-item" id="ordered"><%= Team.find(ta.cacheable_id).name %> (<%= Team.find(ta.cacheable_id).school.city %>)<br /> Average - <%= ta.avg %></li>
+    <% end %>
+  </ol>
+</ul>
+
+
+<ul class="collection with-header">
+  <li class="collection-header"><h4>Top Creativity Teams</h4></li>
+  <ol>
+    <% @top_creativity.each do |tc| %>
+    <li class="collection-item" id="ordered"><%= Team.find(tc.cacheable_id).name %> (<%= Team.find(tc.cacheable_id).school.city %>)<br /> Average - <%= tc.avg %> </li>
+    <% end %>
+  </ol>
+</ul>

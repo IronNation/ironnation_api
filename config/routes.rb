@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  post '/rate' => 'rater#create', :as => 'rate'
+  get '/results', to: 'teams#results', as: 'results'
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", registrations: 'registrations' }
   devise_for :judges, :controllers => { registrations: 'registrations' }
 
   resources :judges
