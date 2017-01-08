@@ -14,7 +14,7 @@ def go
       readme_encoded_content = octokit.readme(repo_id).content
       plaintext_readme = Base64.decode64(readme_encoded_content)
     end
-    Team.create!(name: team_name, uid: uid, description: plaintext_readme, project_url: url)
+    Team.first_or_create(name: team_name, uid: uid, description: plaintext_readme, project_url: url)
   end
 
 
