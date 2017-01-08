@@ -18,7 +18,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     if current_user.judge?
-      @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+      @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, prettify: true)
     else
       redirect_to root_path
     end
