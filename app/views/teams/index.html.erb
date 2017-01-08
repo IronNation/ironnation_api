@@ -3,12 +3,8 @@
 <%= link_to "Current Results", results_path, class: "btn btn-primary" %>
 <h3>Teams:</h3>
 
-<% School.joins(:teams).distinct.each do |campus| %>
-  <ul class="collection with-header">
-    <li class="collection-header"><h4><%= campus.city %></h4></li>
-    <% campus.teams.each do |team| %>
+<% Team.all.each do |team| %>
+  <ul class="collection">
       <li class="collection-item"><%= link_to team.name, team %></li>
-    <% end %>
   </ul>
-
 <% end %>

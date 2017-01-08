@@ -1,15 +1,29 @@
-<h2><%= @team.name %></h2>
+<h2><%= link_to @team.name, @team.project_url, target: "_blank" %></h2>
+<div class="divider"></div>
+<div>
+  <p>
+    <% if @team.description? %>
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <h4>README</h4>
+        <%= @markdown.render(@team.description).html_safe %>
+        <% if current_user.judge? %>
+      </div>
+      <div class="col s12 m6 l6">
+        <h2>Rate Project Here:</h2>
+        <h4>
+          Tech  : <%= rating_for @team, 'tech', star: 10, disable_after_rate: false %>
+          Creativity : <%= rating_for @team, 'creativity', star: 10, disable_after_rate: false %>
+          Real World Application  : <%= rating_for @team, 'real_world_application', star: 10, disable_after_rate: false %>
+        </h4>
+      </div>
+    </div>
 
-<ul class="collection with-header">
-  <li class="collection-header"><h4>Team Members</h4></li>
-  <% @team.users.each do |user| %>
-  <li class="collection-item"><%= link_to user.name, user %> - (<%= user.school.city %>)</li>
-  <% end %>
-</ul>
 
-<% if current_user.judge? %>
-Tech  : <%= rating_for @team, 'tech', stars: 10 %>
-Creativity : <%= rating_for @team, 'creativity', stars: 10 %>
-Real World Application  : <%= rating_for @team, 'real_world_application', stars: 10 %>
 
-<% end %>
+      <% end %>
+    <% else %>
+      <em>There is no repo for this team. </em>
+    <% end %>
+  </p>
+</div>
